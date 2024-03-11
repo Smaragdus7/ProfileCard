@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+
+function Avatar(props) {
+  return <img className="avatar" src={props.imageUrl} alt=''/>
+}
+
+function Intro(props) {
+  return <div><h1>{props.name}</h1><p>{props.bio}</p></div>
+}
+
+function SkillList(props) {
+  return <p className='skill' style={{backgroundColor: props.bgColor}}>{props.skillName+ '' + props.emoji}</p>
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="card">
+      <Avatar imageUrl='profile.jpg'/>
+      <div className="data">
+        <Intro name='Claudia Ibarra' bio='Software developer who enjoys learning how things work, spends a lot of time reading fiction books and researching on the weirdest facts.'/>
+        <div className="skill-list">
+          <SkillList skillName='Javascript' emoji='🦾' bgColor='coral'/>
+          <SkillList skillName='Python' emoji='🐍' bgColor='pink'/>
+          <SkillList skillName='JSX' emoji='💫' bgColor='lime'/>
+        </div>
+      </div>
     </div>
   );
 }
