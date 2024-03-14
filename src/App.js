@@ -1,5 +1,28 @@
 import './App.css';
 
+const skills = [
+  {
+    skill: "Javascript",
+    level: "🦾",
+    color: "#2662EA"
+  },
+  {
+    skill: "Python",
+    level: "🐍",
+    color: "#EFD81D"
+  },
+  {
+    skill: "JSX",
+    level: "💫",
+    color: "#C3DCAF"
+  },
+  {
+    skill: "React",
+    level: "⚡",
+    color: "#C35AAF"
+  }
+];
+
 function Avatar(props) {
   return <img className="avatar" src={props.imageUrl} alt=''/>
 }
@@ -19,9 +42,11 @@ function App() {
       <div className="data">
         <Intro name='Claudia Ibarra' bio='Software developer who enjoys learning how things work, spends a lot of time reading fiction books and researching on the weirdest facts.'/>
         <div className="skill-list">
-          <SkillList skillName='Javascript' emoji='🦾' bgColor='coral'/>
-          <SkillList skillName='Python' emoji='🐍' bgColor='pink'/>
-          <SkillList skillName='JSX' emoji='💫' bgColor='lime'/>
+          {
+            skills.map((skill) => (
+              <SkillList skillName={skill.skill} emoji={skill.level} bgColor={skill.color}/>
+            ))
+          }
         </div>
       </div>
     </div>
